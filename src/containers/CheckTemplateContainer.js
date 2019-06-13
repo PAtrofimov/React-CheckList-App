@@ -8,7 +8,7 @@ class CheckTemplateContainer extends Component {
     const { checkTemplate, getCheckTemplates } = this.props;
     console.log({props:this.props});
 
-    if (!Array.isArray(checkTemplate)) return null;
+    if (!checkTemplate) return null;
     return (
       <div className="row">
         <CheckTemplate
@@ -25,7 +25,7 @@ class CheckTemplateContainer extends Component {
 const mapStateToProps = store => {
   console.log({store});
   return {
-    CheckTemplate: store.CheckTemplate
+    checkTemplate: store.checkTemplate
   };
 };
 

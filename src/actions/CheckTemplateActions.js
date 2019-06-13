@@ -14,45 +14,52 @@ const checkTemplates = [
     сhangeDate: new Date(2018, 1, 20),
     name: "Основной",
     author: "Вася",
-    items: [
+
+    groups: [
       {
         id: 1,
-        text: "Cостояние магазина снаружи ок ?",
-        category: "Наружный вид магазина",
-        typeMark: [TYPES_MARKS.YesNo, TYPES_MARKS.IntervalFrom1To5],
-        required: true
+        text: "Наружный вид магазина",
+        number:1,
+        items: [
+          {
+            id: 1,
+            number: "1.1",
+            text: "Cостояние магазина снаружи?",
+            typeMark: TYPES_MARKS.IntervalFrom1To5,
+            required: true
+          },
+
+          {
+            id: 2,
+            number: "1.2",
+            text: "Хранение соответсвует норме ?",
+            typeMark: TYPES_MARKS.YesNo,
+            required: true
+          }
+        ]
       },
 
       {
         id: 2,
-        text: "Хранение соответсвует норме ?",
-        category: "Овощной отдел",
-        typeMark: [TYPES_MARKS.YesNo, TYPES_MARKS.IntervalFrom1To5],
-        required: true
-      }
-    ]
-  },
+        text: "Техника безопасности на объекте",
+        number: 2,
+        items: [
+          {
+            id: 1,
+            number: "2.1",
+            text: "Техника безопасности соблюдается ?",
+            typeMark: TYPES_MARKS.YesNo,
+            required: true
+          },
 
-  {
-    id: 2,
-    сhangeDate: new Date(2019, 2, 21),
-    name: "Техника безопасности",
-    author: "Петя",
-    items: [
-      {
-        id: 10,
-        text: "Камеры в порядке и охранник на месте ?",
-        category: "Состояние охраны",
-        typeMark: [TYPES_MARKS.YesNo, TYPES_MARKS.IntervalFrom1To5],
-        required: true
-      },
-
-      {
-        id: 20,
-        text: "Рыба свежая ?",
-        category: "Отдел рыбы",
-        typeMark: [TYPES_MARKS.YesNo, TYPES_MARKS.IntervalFrom1To5],
-        required: false
+          {
+            id: 2,
+            number: "2.2",
+            text: "Состояние сигнализации в норме ?",
+            typeMark: TYPES_MARKS.IntervalFrom1To5,
+            required: true
+          }
+        ]
       }
     ]
   }
@@ -97,10 +104,10 @@ export function getCheckTemplates() {
 
     // setTimeout(
     //   () =>
-        dispatch({
-          type: GET_CheckTemplates_SUCCESS,
-          payload: checkTemplates
-        })
+    dispatch({
+      type: GET_CheckTemplates_SUCCESS,
+      payload: checkTemplates
+    });
     //   ,100
     // );
 

@@ -2,6 +2,11 @@ import PropTypes from "prop-types";
 import React from "react";
 
 export class CheckTemplate extends React.Component {
+
+  state = {
+    selectedOption: 'YesNo'
+  }
+
   handleRefresh = e => {
     this.props.getCheckTemplates();
   };
@@ -16,10 +21,10 @@ export class CheckTemplate extends React.Component {
     // });
   }
 
-  handleOptionChange() {
-    // this.setState({
-    //   selectedOption: changeEvent.target.value
-    // });
+  handleOptionChange = (e) => {
+    this.setState({
+      selectedOption: e.target.value
+    });
 
   }
 
@@ -70,7 +75,7 @@ export class CheckTemplate extends React.Component {
 
     return group.items.map((item, index) => (
       <div key={item.id} className="wrapper-point">
-        <span className="point-number">{groupIndex}.{index}</span>
+        <span className="point-number">{item.number}</span>
         <span className="point-text">{item.text}</span>
 
         {this.renderInputs(item)}
@@ -85,13 +90,20 @@ export class CheckTemplate extends React.Component {
       return <p className="error">Произошла ошибка!</p>;
     }
 
-    if (isFetching) {
+    console.log({checkTemplates})
+
+    if (isFetching ) {
       return <p>Загрузка ...</p>;
-    } else {
-      return checkTemplates.map((item, index) => {
+
+
+    } 
+    
+    else if (checkTemplates.length) {
+      return checkTemplates[0].groups.map((item, index) => {
         return (
           <div key={item.id} className="check-template">
-            <span className="group-number">{index}</span>
+            <span className="group-number">{item.number}</span>
+            <span className="group-text">{item.text}</span>
             {this.renderItem(item, index)}
             <button className="btn-active" onClick={this.handleActiveGroup}>
             <img src={""} alt="Active"/>
