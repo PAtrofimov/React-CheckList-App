@@ -1,34 +1,30 @@
 import PropTypes from "prop-types";
 import React from "react";
-import {CheckTemplateItem} from '../components/CheckTemplate-item'; 
+import { CheckTemplateItem } from "../components/CheckTemplate-item";
 
 export class CheckTemplateGroup extends React.Component {
-  renderActions = inputs => {
-    return (
-      <div className="point-actions">
-        <button className="btn-toggle" onClick={this.handleToggleGroup}>
-          <img src={""} alt="Toggle" />
-        </button>
-        <button className="btn-edit" onClick={this.handleEditCroup}>
-          <img src={""} alt="Edit" />
-        </button>
-        <button className="btn-delete" onClick={this.handleDeleteGroup}>
-          <img src={""} alt="Delete" />
-        </button>
-      </div>
-    );
-  };
+  renderActions = () => (
+    <div className="point-actions">
+      <button className="btn-toggle" onClick={this.handleToggleGroup}>
+        <img src={""} alt="Toggle" />
+      </button>
+      <button className="btn-edit" onClick={this.handleEditCroup}>
+        <img src={""} alt="Edit" />
+      </button>
+      <button className="btn-delete" onClick={this.handleDeleteGroup}>
+        <img src={""} alt="Delete" />
+      </button>
+    </div>
+  );
 
-  renderItems = (group) => {
+  renderItems = group => {
+    if (!Array.isArray(group.items)) return <p>Нет вопросов</p>;
 
-    if (!Array.isArray(group.items)) return <p>Нет групп</p>;
-    
     return group.items.map((item, index) => {
       return (
-          <CheckTemplateItem key={index} item={item}>
-            {" "}
-          </CheckTemplateItem>
-       
+        <CheckTemplateItem key={index} item={item}>
+          {" "}
+        </CheckTemplateItem>
       );
     });
   };

@@ -20,18 +20,6 @@ export class CheckTemplate extends React.Component {
     </React.Fragment>
   );
 
-  renderActions = () => (
-    <div className="btn">
-      <button onClick={this.handleRefresh} className="btn">
-        Добавить
-      </button>
-
-      <button onClick={this.handleRefresh} className="btn">
-        Добавить раздел
-      </button>
-    </div>
-  );
-
   renderGroups = () => {
     const { checkTemplates, isFetching, error } = this.props;
 
@@ -60,7 +48,6 @@ export class CheckTemplate extends React.Component {
     return (
       <div className="ib page">
         {this.renderHeader()}
-        {this.renderActions()}
         {this.renderGroups()}
       </div>
     );
