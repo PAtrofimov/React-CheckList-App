@@ -4,7 +4,9 @@ import { Switch, Route, Link, withRouter } from "react-router-dom";
 import CheckTemplateContainer from "../containers/CheckTemplateContainer";
 
 const LinkButton = withRouter(({ history }) => {
-  return <button onClick={() => history.push("/checkTemlates/1")}>Добавить</button>;
+  return (
+    <button onClick={() => history.push("/checkTemlates/1")}>Добавить</button>
+  );
 });
 
 export class CheckTemplateJournal extends React.Component {

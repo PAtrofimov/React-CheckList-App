@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 //import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import {CheckTemplateJournal} from './CheckTemplate-journal'
+import { CheckTemplateJournal } from "./CheckTemplate-journal";
 
 const Settings = () => <p>Settings</p>;
 const Checks = () => <p>Checks</p>;

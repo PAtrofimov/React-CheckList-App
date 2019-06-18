@@ -7,7 +7,7 @@ class CheckTemplateContainer extends Component {
   render() {
     const { checkTemplate, getCheckTemplates } = this.props;
     const id = this.props.match.params.id || 0;
-    console.log({props2:this.props, id});
+    console.log({ props2: this.props, id });
 
     if (!checkTemplate) return null;
     return (
@@ -17,7 +17,7 @@ class CheckTemplateContainer extends Component {
           isFetching={checkTemplate.isFetching}
           getCheckTemplates={getCheckTemplates}
           error={checkTemplate.error}
-          id = {id}
+          id={id}
         />
       </div>
     );
@@ -25,7 +25,7 @@ class CheckTemplateContainer extends Component {
 }
 
 const mapStateToProps = store => {
-  console.log({store});
+  console.log({ store });
   return {
     checkTemplate: store.checkTemplate
   };

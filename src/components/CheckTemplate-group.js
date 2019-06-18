@@ -20,13 +20,18 @@ export class CheckTemplateGroup extends React.Component {
   renderItems = group => {
     if (!Array.isArray(group.items)) return <p>Нет вопросов</p>;
 
-    return group.items.map((item, index) => {
+    const items = group.items.map((item, index) => {
       return (
-        <CheckTemplateItem key={index} item={item}>
+        <CheckTemplateItem key={item.id} item={item}>
           {" "}
         </CheckTemplateItem>
       );
-    });
+    })
+
+    return (<React.Fragment>
+  {items}
+    <CheckTemplateItem key={0} newItem />
+   </React.Fragment> );
   };
 
   render() {

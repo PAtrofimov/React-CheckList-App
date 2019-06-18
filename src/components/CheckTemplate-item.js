@@ -40,7 +40,7 @@ export class CheckTemplateItem extends React.Component {
     return (
       <React.Fragment>
         <button className="btn-add" onClick={this.handleAddItem}>
-          <img src={""} alt="Delete" />
+          <img src={""} alt="Add" />
         </button>
       </React.Fragment>
     );
@@ -107,8 +107,14 @@ export class CheckTemplateItem extends React.Component {
   renderTemplate = (item, newItem) => {
     return (
       <div className="wrapper-point">
-        <span className="point-number">{item.number}</span>
-        <span className="point-text">{item.text}</span>
+        {newItem ? (
+          ""
+        ) : (
+          <React.Fragment>
+            <span className="point-number">{item.number}</span>
+            <span className="point-text">{item.text}</span>
+          </React.Fragment>
+        )}
         {this.renderInputs(item, newItem)}
       </div>
     );

@@ -19,7 +19,7 @@ const checkTemplates = [
       {
         id: 1,
         text: "Наружный вид магазина",
-        number:1,
+        number: 1,
         items: [
           {
             id: 1,
