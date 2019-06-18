@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Switch, Route, Link, withRouter } from "react-router-dom";
-import { CheckTemplate } from "../components/CheckTemplate";
+import CheckTemplateContainer from "../containers/CheckTemplateContainer";
 
 const LinkButton = withRouter(({ history }) => {
   return <button onClick={() => history.push("/checkTemlates/1")}>Добавить</button>;
@@ -54,7 +54,7 @@ export class CheckTemplateJournal extends React.Component {
             <img src={""} alt="Добавить" />
           </LinkButton>
         </div>
-        <Route path={`${match.path}/:id`} component={CheckTemplate} />
+        <Route path={`${match.path}/:id`} component={CheckTemplateContainer} />
       </React.Fragment>
     );
   };

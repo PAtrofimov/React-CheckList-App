@@ -27,7 +27,7 @@ export class CheckTemplate extends React.Component {
       return <p className="error">Произошла ошибка!</p>;
     }
 
-    console.log({ checkTemplates });
+    console.log({ props: this.props });
 
     if (isFetching) {
       return <p>Загрузка ...</p>;

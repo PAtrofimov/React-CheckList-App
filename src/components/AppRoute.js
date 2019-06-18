@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 //import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
+import {CheckTemplateJournal} from './CheckTemplate-journal'
 
 const Settings = () => <p>Settings</p>;
 const Checks = () => <p>Checks</p>;
@@ -44,7 +45,7 @@ const App = () => (
         <Route exact path="/" component={Tasks} />
         <Route path="/calendar" component={Calendar} />
         <Route path="/checks" component={Checks} />
-        <Route path="/checktemplates" component={ChecksTemplates} />
+        <Route path="/checktemplates" component={CheckTemplateJournal} />
         <Route path="/analytics" component={Analytics} />
         <Route path="/settings" render={() => Settings()} />
       </div>
