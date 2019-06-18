@@ -22,9 +22,48 @@ export class CheckTemplateItem extends React.Component {
     });
   };
 
-  renderInputs = inputs => {
+  renderActions = () => {
+    return (
+      <React.Fragment>
+        <button className="btn-edit" onClick={this.handleEditItem}>
+          <img src={""} alt="Edit" />
+        </button>
+
+        <button className="btn-delete" onClick={this.handleDeleteItem}>
+          <img src={""} alt="Delete" />
+        </button>
+      </React.Fragment>
+    );
+  };
+
+  renderActionAdd = () => {
+    return (
+      <React.Fragment>
+        <button className="btn-add" onClick={this.handleAddItem}>
+          <img src={""} alt="Delete" />
+        </button>
+      </React.Fragment>
+    );
+  };
+
+  renderInputAdd = () => {
+    return (
+      <React.Fragment>
+        <input
+          type="text"
+          className="btn-add"
+          name="btn-add-item"
+          defaultValue={""}
+          placeholder="Введите вопрос"
+        />
+      </React.Fragment>
+    );
+  };
+
+  renderInputs = (item, newItem = false) => {
     return (
       <div className="point-actions">
+        {newItem && this.renderInputAdd()}
         <p className="radio-text">Укажите тип ответа</p>
         <div className="radio">
           <label>
@@ -59,36 +98,31 @@ export class CheckTemplateItem extends React.Component {
           />
         </label>
 
-        <button className="btn-edit" onClick={this.handleEditItem}>
-          <img src={""} alt="Edit" />
-        </button>
-
-        <button className="btn-delete" onClick={this.handleDeleteItem}>
-          <img src={""} alt="Delete" />
-        </button>
+        {!newItem && this.renderActions()}
+        {newItem && this.renderActionAdd()}
       </div>
     );
   };
 
-  renderTemplate = (item) => {
-    
-     return ( <div className="wrapper-point">
+  renderTemplate = (item, newItem) => {
+    return (
+      <div className="wrapper-point">
         <span className="point-number">{item.number}</span>
         <span className="point-text">{item.text}</span>
-        {this.renderInputs(item)}
+        {this.renderInputs(item, newItem)}
       </div>
     );
   };
 
   render() {
-    const { item, isFetching, error } = this.props;
-    return this.renderTemplate(item);
+    const { item, isFetching, error, newItem } = this.props;
+    return this.renderTemplate(item, newItem);
   }
 }
 
 CheckTemplateItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired
   //getCheckTemplates: PropTypes.func.isRequired,
- // isFetching: PropTypes.bool.isRequired,
- // error: PropTypes.string
+  // isFetching: PropTypes.bool.isRequired,
+  // error: PropTypes.string
 };
