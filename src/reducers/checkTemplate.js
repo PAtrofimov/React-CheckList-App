@@ -4,8 +4,6 @@ import {
   GET_CheckTemplates_FAIL
 } from "../actions/CheckTemplateActions";
 
-
-
 const initialState = {
   checkTemplates: [],
   isFetching: false,
@@ -18,7 +16,12 @@ export function checkTemplateReducer(state = initialState, action) {
       return { ...state, isFetching: true, error: "" };
 
     case GET_CheckTemplates_SUCCESS:
-      return { ...state, checkTemplates: action.payload, isFetching: false, error: "" };
+      return {
+        ...state,
+        checkTemplates: action.payload,
+        isFetching: false,
+        error: ""
+      };
 
     case GET_CheckTemplates_FAIL:
       return { ...state, error: action.payload.message, isFetching: false };

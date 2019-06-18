@@ -7,48 +7,63 @@ export class CheckTemplate extends React.Component {
     this.props.getCheckTemplates();
   };
 
-  renderHeader = () => (
-    <React.Fragment>
-      <button onClick={this.handleRefresh} className="btn">
-        Refresh
-      </button>
-      <h2 className="">Редактирование шаблона </h2>
-      <p className="check-tpl">Основной</p>
-      <button onClick={this.handleRefresh} className="btn">
-        Edit
-      </button>
-    </React.Fragment>
-  );
+  componentDidMount() {
+    this.props.getCheckTemplates();
+  }
 
-  renderGroups = () => {
+  renderHeader = tpl => {
+    return (
+      <React.Fragment>
+        <button onClick={this.handleRefresh} className="btn">
+          Refresh
+        </button>
+        <h2 className="">Редактирование шаблона </h2>
+        <p className="check-tpl">{tpl.name}</p>
+        <button onClick={this.handleRefresh} className="btn">
+          Edit
+        </button>
+      </React.Fragment>
+    );
+  };
+
+  renderGroups = tpl => {
+    return tpl.groups.map((group, index) => {
+      return (
+        <CheckTemplateGroup key={group.id} group={group}>
+          {" "}
+        </CheckTemplateGroup>
+      );
+    });
+  };
+
+  render() {
+    const id = this.props.id || 0;
     const { checkTemplates, isFetching, error } = this.props;
+
+    console.log({ props3: this.props });
 
     if (error) {
       return <p className="error">Произошла ошибка!</p>;
     }
 
-    console.log({ props: this.props });
-
     if (isFetching) {
       return <p>Загрузка ...</p>;
-    } else if (checkTemplates.length) {
-      return checkTemplates[0].groups.map((group, index) => {
-        return (
-          <CheckTemplateGroup key={group.id} group={group}>
-            {" "}
-          </CheckTemplateGroup>
-        );
-      });
     }
-  };
 
-  render() {
-    const { checkTemplates } = this.props;
+    if (!checkTemplates.length) {
+      return null;
+    }
+
+    const filteredCheckTemplates = checkTemplates.filter(elem => elem.id == id);
+    console.log({ filteredCheckTemplates});
+    if (!filteredCheckTemplates.length) {
+      return null;
+    }
 
     return (
       <div className="ib page">
-        {this.renderHeader()}
-        {this.renderGroups()}
+        {this.renderHeader(filteredCheckTemplates[0])}
+        {this.renderGroups(filteredCheckTemplates[0])}
       </div>
     );
   }

@@ -6,7 +6,8 @@ import { getCheckTemplates } from "../actions/CheckTemplateActions";
 class CheckTemplateContainer extends Component {
   render() {
     const { checkTemplate, getCheckTemplates } = this.props;
-    console.log({props:this.props});
+    const id = this.props.match.params.id || 0;
+    console.log({props2:this.props, id});
 
     if (!checkTemplate) return null;
     return (
@@ -16,6 +17,7 @@ class CheckTemplateContainer extends Component {
           isFetching={checkTemplate.isFetching}
           getCheckTemplates={getCheckTemplates}
           error={checkTemplate.error}
+          id = {id}
         />
       </div>
     );
