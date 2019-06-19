@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 //import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import { CheckTemplateJournal } from "./CheckTemplate-journal";
+import { CheckTemplateRoute } from "./CheckTemplateRoute";
 
 const Settings = () => <p>Settings</p>;
 const Checks = () => <p>Checks</p>;
@@ -42,12 +42,14 @@ const App = () => (
 
       <hr />
       <div className="content">
-        <Route exact path="/" component={Tasks} />
-        <Route path="/calendar" component={Calendar} />
-        <Route path="/checks" component={Checks} />
-        <Route path="/checktemplates" component={CheckTemplateJournal} />
-        <Route path="/analytics" component={Analytics} />
-        <Route path="/settings" render={() => Settings()} />
+        <Switch>
+          <Route exact path="/" component={Tasks} />
+          <Route path="/calendar" component={Calendar} />
+          <Route path="/checks" component={Checks} />
+          <Route path="/checktemplates" component={CheckTemplateRoute} />
+          <Route path="/analytics" component={Analytics} />
+          <Route path="/settings" render={() => Settings()} />
+        </Switch>
       </div>
     </div>
   </Router>

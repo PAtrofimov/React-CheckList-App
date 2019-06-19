@@ -56,14 +56,13 @@ export class CheckTemplateJournal extends React.Component {
             <img src={""} alt="Добавить" />
           </LinkButton>
         </div>
-        <Route path={`${match.path}/:id`} component={CheckTemplateContainer} />
+        
       </React.Fragment>
     );
   };
 
   render() {
     const { checkTemplates, match } = this.props;
-
     return <div className="checktemplates">{this.renderTemplate(match)}</div>;
   }
 }
