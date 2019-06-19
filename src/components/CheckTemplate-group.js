@@ -4,7 +4,7 @@ import { CheckTemplateItem } from "../components/CheckTemplate-item";
 
 export class CheckTemplateGroup extends React.Component {
   renderActions = () => (
-    <div className="point-actions">
+    <React.Fragment>
       <button className="btn-toggle" onClick={this.handleToggleGroup}>
         <img src={""} alt="Toggle" />
       </button>
@@ -14,7 +14,7 @@ export class CheckTemplateGroup extends React.Component {
       <button className="btn-delete" onClick={this.handleDeleteGroup}>
         <img src={""} alt="Delete" />
       </button>
-    </div>
+    </React.Fragment>
   );
 
   renderItems = group => {
@@ -38,9 +38,11 @@ export class CheckTemplateGroup extends React.Component {
     const { group, isFetching, error } = this.props;
     return (
       <div className="group">
+        <div>
         <span className="group-number">{group.number}</span>
         <span className="group-text">{group.text}</span>
         {this.renderActions()}
+        </div>
         {this.renderItems(group)}
       </div>
     );

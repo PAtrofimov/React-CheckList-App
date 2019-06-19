@@ -14,14 +14,13 @@ export class CheckTemplate extends React.Component {
   renderTemplate = tpl => {
     return (
       <React.Fragment>
-        <button onClick={this.handleRefresh} className="btn">
-          Refresh
-        </button>
         <h2 className="">Редактирование шаблона </h2>
-        <p className="check-tpl">{tpl.name}</p>
-        <button onClick={this.handleRefresh} className="btn">
+        <div>
+        <span className="check-tpl">{tpl.name}</span>
+        <button onClick={this.handleRefresh} className="">
           Edit
         </button>
+        </div>
       </React.Fragment>
     );
   };
