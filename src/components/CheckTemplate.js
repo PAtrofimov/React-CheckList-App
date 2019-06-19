@@ -11,7 +11,7 @@ export class CheckTemplate extends React.Component {
     this.props.getCheckTemplates();
   }
 
-  renderHeader = tpl => {
+  renderTemplate = tpl => {
     return (
       <React.Fragment>
         <button onClick={this.handleRefresh} className="btn">
@@ -23,6 +23,19 @@ export class CheckTemplate extends React.Component {
           Edit
         </button>
       </React.Fragment>
+    );
+  };
+
+  renderAddGroup = () => {
+    return (
+      <div className="actions">
+       
+        <input type="text" placeholder="Введите раздел ..." className="add-group"   name="add_group"  defaultValue={""}/>
+     
+        <button onClick={this.handleAddGroup} className="btn-add">
+          Add
+        </button>
+      </div>
     );
   };
 
@@ -62,7 +75,8 @@ export class CheckTemplate extends React.Component {
 
     return (
       <div className="ib page">
-        {this.renderHeader(filteredCheckTemplates[0])}
+        {this.renderTemplate(filteredCheckTemplates[0])}
+        {this.renderAddGroup()}
         {this.renderGroups(filteredCheckTemplates[0])}
       </div>
     );
