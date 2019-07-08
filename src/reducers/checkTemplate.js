@@ -1,7 +1,8 @@
 import {
   GET_CheckTemplates_SUCCESS,
   GET_CheckTemplates_REQUEST,
-  GET_CheckTemplates_FAIL
+  GET_CheckTemplates_FAIL,
+  ADD_CheckTemplate
 } from "../actions/CheckTemplateActions";
 
 const initialState = {
@@ -25,6 +26,8 @@ export function checkTemplateReducer(state = initialState, action) {
 
     case GET_CheckTemplates_FAIL:
       return { ...state, error: action.payload.message, isFetching: false };
+    case ADD_CheckTemplate:
+         return { ...state, error: "", isFetching: false,  checkTemplates: [...state.checkTemplates, action.payload]};
     default:
       return state;
   }

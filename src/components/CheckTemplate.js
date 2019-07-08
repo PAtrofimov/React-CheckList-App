@@ -1,6 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { CheckTemplateGroup } from "../components/CheckTemplate-group";
+
+const LinkButton = withRouter(({ history }) => {
+  return (
+    <button onClick={() => history.push("/checktemplates")}>Edit</button>
+  );
+});
 
 export class CheckTemplate extends React.Component {
   handleRefresh = e => {
@@ -17,9 +24,8 @@ export class CheckTemplate extends React.Component {
         <h2 className="">Редактирование шаблона </h2>
         <div>
         <span className="check-tpl">{tpl.name}</span>
-        <button onClick={this.handleRefresh} className="">
-          Edit
-        </button>
+        <LinkButton className=""
+        />
         </div>
       </React.Fragment>
     );

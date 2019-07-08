@@ -5,7 +5,7 @@ import CheckTemplateContainer from "../containers/CheckTemplateContainer";
 
 const LinkButton = withRouter(({ history }) => {
   return (
-    <button onClick={() => history.push("/checkTemlates/1")}>Добавить</button>
+    <button onClick={() => history.push("/checktemplates/1")}>Добавить</button>
   );
 });
 
@@ -22,7 +22,6 @@ export class CheckTemplateJournal extends React.Component {
               <th>Автор</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
               <td>
@@ -36,7 +35,6 @@ export class CheckTemplateJournal extends React.Component {
               <td>01.01.2019</td>
               <td>И. Ленин</td>
             </tr>
-
             <tr>
               <td>Должностные инструкции</td>
               <td>01.01.2011</td>

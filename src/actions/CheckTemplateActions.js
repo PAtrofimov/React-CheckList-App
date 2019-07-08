@@ -2,6 +2,8 @@ export const GET_CheckTemplates_REQUEST = "GET_CheckTemplates_REQUEST";
 export const GET_CheckTemplates_SUCCESS = "GET_CheckTemplates_SUCCESS";
 export const GET_CheckTemplates_FAIL = "GET_CheckTemplates_FAIL";
 
+export const ADD_CheckTemplate = "ADD_CheckTemplate";
+
 export const TYPES_MARKS = {
   YesNoMiddle: "YesNoMiddle",
   IntervalFrom1To5: "IntervalFrom1To5",
@@ -94,6 +96,68 @@ const checkTemplates = [
 //     }
 //   );
 // }
+
+
+let id=0;
+export const createCheckTemplate = ({ name, author }) => {
+  return (dispatch) => {
+    return dispatch(createCheckTemplateSuccess({id:++id, changeDate: new Date(), name, author}));
+    // return axios.post(`${apiUrl}/add`, {title, body})
+    //   .then(response => {
+      //  dispatch(createPostSuccess(response.data))
+      // })
+      // .catch(error => {
+      //   throw(error);
+      // });
+  };
+};
+
+export const createCheckTemplateSuccess =  (data) => {
+  return {
+    type: ADD_CheckTemplate,
+    payload: {...data}
+  }
+};
+
+// export const deletePostSuccess = id => {
+//   return {
+//     type: DELETE_POST,
+//     payload: {
+//       id
+//     }
+//   }
+// }
+
+// export const deletePost = id => {
+//   return (dispatch) => {
+//     return axios.get(`${apiUrl}/delete/${id}`)
+//       .then(response => {
+//         dispatch(deletePostSuccess(response.data))
+//       })
+//       .catch(error => {
+//         throw(error);
+//       });
+//   };
+// };
+
+// export const fetchPosts = (posts) => {
+//   return {
+//     type: FETCH_POST,
+//     posts
+//   }
+// };
+
+// export const fetchAllPosts = () => {
+//   return (dispatch) => {
+//     return axios.get(apiUrl)
+//       .then(response => {
+//         dispatch(fetchPosts(response.data))
+//       })
+//       .catch(error => {
+//         throw(error);
+//       });
+//   };
+// };
 
 export function getCheckTemplates() {
   return dispatch => {

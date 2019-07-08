@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { CheckTemplate } from "../components/CheckTemplate";
 import { getCheckTemplates } from "../actions/CheckTemplateActions";
+import {createCheckTemplate} from "../actions/CheckTemplateActions"
 
 class CheckTemplateContainer extends Component {
   render() {
@@ -33,7 +34,8 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getCheckTemplates: () => dispatch(getCheckTemplates())
+    getCheckTemplates: () => dispatch(getCheckTemplates()),
+    addCheckTemplates: (data) => dispatch(createCheckTemplate(data))
   };
 };
 
