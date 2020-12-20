@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-CheckList-App/static/css/main.ba12695f.chunk.css",
+    "main.js": "/React-CheckList-App/static/js/main.dcf0dc06.chunk.js",
+    "main.js.map": "/React-CheckList-App/static/js/main.dcf0dc06.chunk.js.map",
+    "runtime~main.js": "/React-CheckList-App/static/js/runtime~main.3fb5d5fd.js",
+    "runtime~main.js.map": "/React-CheckList-App/static/js/runtime~main.3fb5d5fd.js.map",
+    "static/js/2.af89d38a.chunk.js": "/React-CheckList-App/static/js/2.af89d38a.chunk.js",
+    "static/js/2.af89d38a.chunk.js.map": "/React-CheckList-App/static/js/2.af89d38a.chunk.js.map",
+    "index.html": "/React-CheckList-App/index.html",
+    "precache-manifest.37a27af3b31057a026b69e50e3e36412.js": "/React-CheckList-App/precache-manifest.37a27af3b31057a026b69e50e3e36412.js",
+    "service-worker.js": "/React-CheckList-App/service-worker.js",
+    "static/css/main.ba12695f.chunk.css.map": "/React-CheckList-App/static/css/main.ba12695f.chunk.css.map"
+  }
+}
